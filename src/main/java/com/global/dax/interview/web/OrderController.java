@@ -1,6 +1,6 @@
 package com.global.dax.interview.web;
 
-import com.global.dax.interview.model.Order;
+import com.global.dax.interview.model.order.Order;
 import com.global.dax.interview.service.OrderService;
 import com.global.dax.interview.validation.OrderValidator;
 import lombok.AllArgsConstructor;
@@ -15,22 +15,22 @@ import org.springframework.web.bind.annotation.*;
 @Slf4j
 public class OrderController {
 
-    private final OrderService orderLineService;
-    private final OrderValidator orderLineValidator;
+    private final OrderService orderService;
+    private final OrderValidator orderValidator;
 
     @GetMapping("/{id}")
     public ResponseEntity<Order> getOrderById(@PathVariable Integer id) {
         log.info("GET /order/{} called", id);
-        final var orderLine = orderLineService.getOrderById(id);
-        return ResponseEntity.ok(orderLine);
+        final var order = orderService.getOrderById(id);
+        return ResponseEntity.ok(order);
     }
 
     @PostMapping
-    public ResponseEntity<Integer> createOrder(@RequestBody Order orderLine) {
+    public ResponseEntity<Integer> createOrder(@RequestBody Order order) {
         log.info("POST /order called");
-        orderLineValidator.validateCreate(orderLine);
-        final var orderLineId = orderLineService.createOrder(orderLine);
-        return ResponseEntity.status(HttpStatus.OK).body(orderLineId);
+        orderValidator.validateCreate(order);
+        final var orderId = orderService.createOrder(order);
+        return ResponseEntity.status(HttpStatus.OK).body(orderId);
     }
 
 }

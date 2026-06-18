@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 public class Campaign {
 
     private Integer id;
-    @NotNull private Integer orderLineId;
+    @NotNull private Integer orderId;
     @NotNull private String name;
     @NotNull private CampaignStatus status;
     @NotNull private DeliveryType deliveryType;

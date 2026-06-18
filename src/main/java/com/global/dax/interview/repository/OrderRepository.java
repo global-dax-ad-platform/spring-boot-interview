@@ -1,6 +1,6 @@
 package com.global.dax.interview.repository;
 
-import com.global.dax.interview.model.Order;
+import com.global.dax.interview.model.order.Order;
 import org.springframework.stereotype.Repository;
 
 import java.util.Map;
@@ -13,12 +13,12 @@ public class OrderRepository {
     private final Map<Integer, Order> storage = new ConcurrentHashMap<>();
     private Integer nextId = 1;
 
-    public Order save(Order orderLine) {
-        if (orderLine.getId() == null) {
-            orderLine.setId(nextId++);
+    public Order save(Order order) {
+        if (order.getId() == null) {
+            order.setId(nextId++);
         }
-        storage.put(orderLine.getId(), orderLine);
-        return orderLine;
+        storage.put(order.getId(), order);
+        return order;
     }
 
     public Optional<Order> findById(Integer id) {

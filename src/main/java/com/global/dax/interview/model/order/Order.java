@@ -1,5 +1,6 @@
-package com.global.dax.interview.model;
+package com.global.dax.interview.model.order;
 
+import com.global.dax.interview.model.DeliveryType;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

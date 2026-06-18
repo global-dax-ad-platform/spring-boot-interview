@@ -1,7 +1,7 @@
 package com.global.dax.interview.validation;
 
-import com.global.dax.interview.model.Order;
-import com.global.dax.interview.model.OrderStatus;
+import com.global.dax.interview.model.order.Order;
+import com.global.dax.interview.model.order.OrderStatus;
 
 import java.util.Optional;
 
@@ -11,13 +11,13 @@ import java.util.Optional;
  */
 public final class OrderValidationRules {
 
-    private static final String ORDER_LINE_FIELD = "orderLine";
+    private static final String ORDER_LINE_FIELD = "order";
 
-    public static Optional<ValidationError> validateIsDraft(final Order orderLine) {
-        if (orderLine.getStatus() != OrderStatus.DRAFT) {
+    public static Optional<ValidationError> validateIsDraft(final Order order) {
+        if (order.getStatus() != OrderStatus.DRAFT) {
             return Optional.of(new ValidationError(
                     ORDER_LINE_FIELD,
-                    "Order line must be in DRAFT status"
+                    "Order must be in DRAFT status"
             ));
         }
         return Optional.empty();
