@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.global.dax.interview.exception.ValidationException;
-import com.global.dax.interview.model.Order;
+import com.global.dax.interview.model.order.Order;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -14,13 +14,13 @@ import org.springframework.stereotype.Component;
 @AllArgsConstructor
 public class OrderValidator {
 
-    public void validateCreate(final Order orderLine) {
+    public void validateCreate(final Order order) {
         final List<ValidationError> errors = new ArrayList<>();
-        validateIsDraft(orderLine).ifPresent(errors::add);
+        validateIsDraft(order).ifPresent(errors::add);
 
 
         if (!errors.isEmpty()) {
-            throw new ValidationException("Order line creation validation failed", errors);
+            throw new ValidationException("Order creation validation failed", errors);
         }
     }
 }

@@ -1,6 +1,6 @@
 package com.global.dax.interview.service;
 
-import com.global.dax.interview.model.Order;
+import com.global.dax.interview.model.order.Order;
 import com.global.dax.interview.repository.OrderRepository;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -13,15 +13,15 @@ import java.util.NoSuchElementException;
 @Slf4j
 public class OrderService {
 
-    private final OrderRepository orderLineRepository;
+    private final OrderRepository orderRepository;
 
     public Order getOrderById(Integer id) {
-        return orderLineRepository.findById(id)
-                .orElseThrow(() -> new NoSuchElementException("Order line with id " + id + " not found"));
+        return orderRepository.findById(id)
+                .orElseThrow(() -> new NoSuchElementException("Order with id " + id + " not found"));
     }
 
-    public Integer createOrder(final Order orderLine) {
-        log.info("Creating order line with name '{}'", orderLine.getName());
-        return orderLineRepository.save(orderLine).getId();
+    public Integer createOrder(final Order order) {
+        log.info("Creating order line with name '{}'", order.getName());
+        return orderRepository.save(order).getId();
     }
 }

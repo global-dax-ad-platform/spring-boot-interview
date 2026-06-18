@@ -32,7 +32,7 @@ class CampaignControllerTest {
         campaignRepository.save(Campaign.builder()
                                         .id(1)
                                         .name("My Campaign")
-                                        .orderLineId(1)
+                                        .orderId(1)
                                         .status(CampaignStatus.DRAFT)
                                         .deliveryType(DeliveryType.DIRECT)
                                         .businessId(1)

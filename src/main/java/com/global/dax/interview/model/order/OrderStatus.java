@@ -1,4 +1,4 @@
-package com.global.dax.interview.model;
+package com.global.dax.interview.model.order;
 
 public enum OrderStatus {
     DRAFT,
