@@ -1,0 +1,23 @@
+### IDEs ###
+.classpath
+.project
+.claude
+.settings
+.idea
+*.iws
+*.iml
+*.ipr
+### Ignore custom run files that may be created by users (except the default configuration)
+.run/*
+!.run/GrpcServiceStarter.run.xml
+src/main/resources/localServiceToken
+
+### Compiled ###
+build/
+target/
+out/
+.gradle
+
+
+### Operating System files
+.DS_Store
