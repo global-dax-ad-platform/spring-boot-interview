@@ -1,0 +1,9 @@
+name: Label PR by author
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+
+jobs:
+  label-pr:
+    uses: global-dax-ad-platform/github-workflows/.github/workflows/label-pr-by-author.yml@main

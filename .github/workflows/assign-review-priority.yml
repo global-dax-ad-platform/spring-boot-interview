@@ -1,0 +1,10 @@
+name: Add PR to project
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+
+jobs:
+  add:
+    uses: global-dax-ad-platform/github-workflows/.github/workflows/assign-review-priority.yml@main
+    secrets: inherit
