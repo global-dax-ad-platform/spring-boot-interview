@@ -1,0 +1,9 @@
+name: Assign PR to author
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+
+jobs:
+  assign-pr:
+    uses: global-dax-ad-platform/github-workflows/.github/workflows/assign-pr-to-author.yml@main

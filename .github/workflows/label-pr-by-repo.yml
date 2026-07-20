@@ -1,0 +1,9 @@
+name: Label PR by repo
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+
+jobs:
+  label-pr:
+    uses: global-dax-ad-platform/github-workflows/.github/workflows/label-pr-by-repo.yml@main
